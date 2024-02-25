@@ -26,6 +26,7 @@ public class UserController {
     @PostMapping("/add")
     public String addUser(@RequestBody UserInfo userInfo){
         //userInfo.setRoles(DEFAULT_ROLE);
+        //By default when a user is added the role will be 'ROLE_USER'
         String encryptPwd = passwordEncoder.encode(userInfo.getPassword());
         userInfo.setPassword(encryptPwd);
         userRepository.save(userInfo);
