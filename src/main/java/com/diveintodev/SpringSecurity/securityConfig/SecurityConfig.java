@@ -25,6 +25,8 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
 
+    /** has configurations for both spring boot 3.0 as well as downward versions **/
+    
     /** boot 3.1**/
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
