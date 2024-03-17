@@ -32,7 +32,7 @@ public class UserController {
         userRepository.save(userInfo);
         return "user saved";
     }
-
+    //get each user by id --> can be accessed by any user
     @GetMapping("/getUser/{userId}")
     @PreAuthorize("hasAuthority('ROLE_USER')")
     public UserInfo getUserById(@PathVariable int userId){
