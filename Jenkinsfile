@@ -1,17 +1,26 @@
+def gv
+
 pipeline {
 
   agent any
 
     stages {    
-        stage('git clone') {
+        stage('init') {
            steps {
-             git 'https://github.com/gsd1998/spring-security.git'
+             gv = load "script.groovy"
            }  
         }
-        stage('mvn build') {
+        stage('build') {
            steps {
-             bat 'mvn clean package'
-           }      
-        }      
-   }
+             script {
+               gv.buildApp()
+           }  
+        }
+        stage('test') {
+           steps {
+             script {
+               gv.testApp()
+            } 
+        }    
+    }
 } 
